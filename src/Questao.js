@@ -2,6 +2,9 @@ import { useState } from "react";
 import styled from "styled-components"
 import iconePlay from "./assets/img/seta_play.png"
 import setaVirar from "./assets/img/seta_virar.png"
+import iconeCerto from "./assets/img/icone_certo.png";
+import iconeErrado from "./assets/img/icone_errado.png";
+import iconeQuase from "./assets/img/icone_quase.png";
 
 
 export default function Questao({ conj, index , contador, setContador}) {
