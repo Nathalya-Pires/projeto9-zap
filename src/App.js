@@ -2,13 +2,14 @@ import Topo from "./Topo";
 import Flashcards from "./Flashcards";
 import styled from "styled-components";
 import Footer from "./Footer";
-import deckPerguntas from "./deckPerguntas"
+import deckPerguntas from "./deckPerguntas";
+import { useState } from "react";
 
 
 export default function App() {
 
     const [contador, setContador] = useState(0);
-    const tamamnhoDeck = deckPerguntas.length;
+    const tamanhoDeck = deckPerguntas.length;
 
     return (
         <>

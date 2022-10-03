@@ -10,7 +10,6 @@ export default function Topo() {
   )
 }
 
-
 const Logo = styled.div`
   display: flex;
   align-items: center;

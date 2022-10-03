@@ -3,55 +3,55 @@ import styled from "styled-components"
 import iconePlay from "./assets/img/seta_play.png"
 import setaVirar from "./assets/img/seta_virar.png"
 import iconeCerto from "./assets/img/icone_certo.png";
-import iconeErrado from "./assets/img/icone_errado.png";
+import iconeErrado from "./assets/img/icone_erro.png";
 import iconeQuase from "./assets/img/icone_quase.png";
 
 
-export default function Questao({ conj, index , contador, setContador}) {
-    
+export default function Questao({ conj, index, contador, setContador }) {
+
     const [categoria, setCategoria] = useState(conj.categoria);
     const [icone, setIcone] = useState("");
     const [cor, setCor] = useState("");
 
-        if (categoria === "inicial") {
-            return (
-                <QuestaoFechada>
-                    <p>Pergunta {index + 1} </p>
-                    <img src={iconePlay} alt="Icone de Play" onClick={() => setCategoria("mostraPergunta")}/>
-                </QuestaoFechada>
-            );
-        }
+    if (categoria === "inicial") {
+        return (
+            <QuestaoFechada>
+                <p>Pergunta {index + 1} </p>
+                <img src={iconePlay} alt="Icone de Play" onClick={() => setCategoria("mostraPergunta")} />
+            </QuestaoFechada>
+        );
+    }
 
-        if (categoria === "mostraPergunta") {
-            return (
-                <QuestaoAberta>
-                    <p>{conj.pergunta}</p>
-                    <img src={setaVirar} alt="Icone de Play" onClick={() => setCategoria("mostraResposta")}/>
-                </QuestaoAberta>
-            );
-        }
+    if (categoria === "mostraPergunta") {
+        return (
+            <QuestaoAberta>
+                <p>{conj.pergunta}</p>
+                <img src={setaVirar} alt="Icone de Play" onClick={() => setCategoria("mostraResposta")} />
+            </QuestaoAberta>
+        );
+    }
 
-        if (categoria === "mostraResposta") {
-            return (
-                <RespostaQuestao>
-                    <p>{conj.resposta}</p>
-			  <div>
-                    	<Botao cor="#FF3030" onClick={() => (setStatus("questaoRespondida"), setCor("#FF3030"), setContador(contador + 1), setIcone(iconeErrado))}>Não lembrei </Button>
-                    	<Botao cor="#FF922E" onClick={() => (setStatus("questaoRespondida"), setCor("#FF922E"), setContador(contador + 1), setIcone(iconeQuase))}>Quase não lembrei </Button>
-                    	<Botao cor="#2FBE34" pnClick={() => (setStatus("questaoRespondida"), setCor("#2FBE34"), setContador(contador + 1), setIcone(iconeCerto))}>Acertei</Button>
-                    </div>	
-                </RespostaQuestao>
-            );
-        }
-        if (status === "questaoRespondida") {
+    if (categoria === "mostraResposta") {
+        return (
+            <RespostaQuestao>
+                <p>{conj.resposta}</p>
+                <div>
+                    <Botao cor="#FF3030" onClick={() => (setCategoria("questaoRespondida"), setCor("#FF3030"), setContador(contador + 1), setIcone(iconeErrado))}>Não lembrei </Botao>
+                    <Botao cor="#FF922E" onClick={() => (setCategoria("questaoRespondida"), setCor("#FF922E"), setContador(contador + 1), setIcone(iconeQuase))}>Quase não lembrei </Botao>
+                    <Botao cor="#2FBE34" onClick={() => (setCategoria("questaoRespondida"), setCor("#2FBE34"), setContador(contador + 1), setIcone(iconeCerto))}>Acertei</Botao>
+                </div>
+            </RespostaQuestao>
+        );
+    }
+    if (categoria === "questaoRespondida") {
         return (
             <QuestaoFinalizada cor={cor} >
                 <p>Pergunta {index + 1}</p>
                 <img src={icone} alt="Ícone" />
             </QuestaoFinalizada>
         );
-    }   
     }
+}
 
 
 
