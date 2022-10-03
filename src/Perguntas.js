@@ -12,6 +12,9 @@ export default function Perguntas() {
 }
 
 
+
+
+
 const Questoes = styled.div`
   width: 300px;
   height: 35px;
