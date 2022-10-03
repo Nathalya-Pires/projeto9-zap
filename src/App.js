@@ -1,8 +1,8 @@
 import Topo from "./Topo";
-import Perguntas from "./Perguntas";
+import Flashcards from "./Flashcards";
 import styled from "styled-components";
 import Footer from "./Footer";
-
+import deckPerguntas from "./deckPerguntas"
 
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
         <>
             <Desktop>
                 <Topo />
-                <Perguntas />
+                <Flashcards deckPerguntas={deckPerguntas}/>
             </Desktop>
             <Footer />
         </>
