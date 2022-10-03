@@ -6,13 +6,17 @@ import deckPerguntas from "./deckPerguntas"
 
 
 export default function App() {
+
+    const [contador, setContador] = useState(0);
+    const tamamnhoDeck = deckPerguntas.length;
+
     return (
         <>
             <Desktop>
                 <Topo />
-                <Flashcards deckPerguntas={deckPerguntas}/>
+                <Flashcards deckPerguntas={deckPerguntas} contador={contador} setContador={setContador}/>
             </Desktop>
-            <Footer />
+            <Footer contador={contador} tamanhoDeck={tamanhoDeck}/>
         </>
     )
 }
